@@ -43,16 +43,82 @@
     <!-- header -->
     <div id="headerwrap">
         <div id="header">
-            <div></div>
+            <a href="https://www.jd.com" class="logo ">
+            </a>
             <p>欢迎注册</p>
-            <p>已有账号？</p>
-            <a href="">请登录&gt;</a>
+            <div class="have-account">已有账号？
+                <a href="login.html">请登录&gt;
+                </a>
+            </div>
         </div>
     </div>
-    <!-- footer -->
-    <div id="footerwrap">
-        <div id="footer">
+    <!-- main -->
+    <div id="main">
+        <!-- progess-bar -->
+        <div class="progress-bar clearfix">
+            <div class="pro-step cur-step ">
+                <span class="step-index">1</span>
+                <p class="step-desc">验证手机号</p>
+            </div>
+            <div class="pro-line pro-line1 person-pro-line person-pro-line1 "></div>
+            <div class="pro-step pro-step2 person-pro-step2  ">
+                <span class="step-index">2</span>
+                <p class="step-desc">填写账号信息</p>
+            </div>
+            <div class="pro-line pro-line2 person-pro-line person-pro-line2 "></div>
+            <div class="pro-step pro-step3 person-pro-step3  ">
+                <span class="step-index">3</span>
+                <p class="step-desc">注册成功</p>
+            </div>
+        </div>
+        <!-- item -->
+        <form id="item" action="">
+            <div class="phone">
+                <label for="phone">手机：</label>
+                <input id="phone" type="text" placeholder="建议使用常用手机号">
+            </div>
+            <div>
+                <label for="account">用户名:</label>
+                <input id="account" type="text" placeholder="您的账户名和登录名">
+            </div>
+            <div>
+                <label for="password">密码:</label>
+                <input id="password" type="text" placeholder="建议使用两种或两种以上字符">
+            </div>
+            <div>
+                <label for="cpassword">确认密码:</label>
+                <input id="cpassword" type="text" placeholder="请再次输入密码">
+            </div>
+            <input type="button" value="点击按钮进行验证">
+            <input type="button" value="下一步">
+        </form>
+        <div class="user">
+            <a class="user-boss">
+                <i></i> 企业用户注册
+            </a>
+            <a class="user-overseas">
+                <i></i> 海外用户注册
+            </a>
+        </div>
 
+    </div>
+    <!-- footer -->
+    <div id="footer">
+        <div class="links">
+            <a rel="nofollow" target="_blank" href="//www.jd.com/intro/about.aspx"> 关于我们</a>|
+            <a rel="nofollow" target="_blank" href="//www.jd.com/contact/">联系我们</a>|
+            <a rel="nofollow" target="_blank" href="//zhaopin.jd.com/">人才招聘</a>|
+            <a rel="nofollow" target="_blank" href="//www.jd.com/contact/joinin.aspx">商家入驻</a>|
+            <a rel="no  follow" target="_blank" href="//www.jd.com/intro/service.aspx">广告服务</a>|
+            <a rel="nofollow" target="_blank" href="//app.jd.com/">手机京东</a>|
+            <a target="_blank" href="//club.jd.com/links.aspx">友情链接</a>|
+            <a target="_blank" href="//media.jd.com">销售联盟</a>|
+            <a href="//club.jd.com/" target="_blank">京东社区</a>|
+            <a href="//gongyi.jd.com" target="_blank">京东公益</a>|
+            <a target="_blank" href="//en.jd.com/" clstag="pageclick|keycount|20150112ABD|9">English Site</a>
+        </div>
+        <div class="copyright">
+            Copyright©2004-2020&nbsp;&nbsp;京东JD.com&nbsp;版权所有
         </div>
     </div>
     <script src="../js/register.js"></script>

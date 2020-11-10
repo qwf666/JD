@@ -106,3 +106,38 @@ var swiper = new Swiper('#ba-bottom-right-slide', {
         clickable: true,
     },
 });
+
+/* 轮播走马灯 */
+var recommends = new Swiper('#recommends', {
+    slidesPerView: 5,
+    speed: 3000,
+    loop: true,
+    spaceBetween: 0,
+    // loopFillGroupWithBlank: true,
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: true,
+    },
+    autoplay: {
+        delay: 0,
+        stopOnLastSlide: false,
+        disableOnInteraction: true,
+    },
+})
+
+/* 轮播异形的slide(new-product) */
+var swiper = new Swiper('#new-product', {
+    slidesPerView: 3,
+    spaceBetween: 100,
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});

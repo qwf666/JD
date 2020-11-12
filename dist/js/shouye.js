@@ -43,12 +43,9 @@ var swiper2 = new Swiper('#ba-right-slide', {
         prevEl: '.swiper-button-prev',
     },
 });
-//鼠标进入停止自动切换
 swiper2.el.onmouseover = function() {
     swiper2.autoplay.stop();
 }
-
-//鼠标离开开始自动切换
 swiper2.el.onmouseout = function() {
     swiper2.autoplay.start();
 }
@@ -72,7 +69,7 @@ function getDiffDate() {
 setInterval(getDiffDate, 1000);
 
 /* 轮播三长条显示 */
-var swiper = new Swiper('#ba-bottom-center-slide', {
+var swiper3 = new Swiper('#ba-bottom-center-slide', {
     slidesPerView: 4,
     spaceBetween: 0,
     slidesPerGroup: 4,
@@ -88,9 +85,14 @@ var swiper = new Swiper('#ba-bottom-center-slide', {
         prevEl: '.swiper-button-prev',
     },
 });
-
-/* 轮播四单条显示 */
-var swiper = new Swiper('#ba-bottom-right-slide', {
+swiper3.el.onmouseover = function() {
+    swiper3.autoplay.stop();
+}
+swiper3.el.onmouseout = function() {
+        swiper3.autoplay.start();
+    }
+    /* 轮播四单条显示 */
+var swiper4 = new Swiper('#ba-bottom-right-slide', {
     slidesPerView: 1,
     spaceBetween: 0,
     slidesPerGroup: 1,
@@ -106,8 +108,13 @@ var swiper = new Swiper('#ba-bottom-right-slide', {
         clickable: true,
     },
 });
-
-/* 轮播走马灯 */
+swiper4.el.onmouseover = function() {
+    swiper4.autoplay.stop();
+}
+swiper4.el.onmouseout = function() {
+        swiper4.autoplay.start();
+    }
+    /* 轮播走马灯 */
 var recommends = new Swiper('#recommends', {
     slidesPerView: 5,
     speed: 3000,
@@ -124,9 +131,14 @@ var recommends = new Swiper('#recommends', {
         disableOnInteraction: true,
     },
 })
-
-/* 轮播异形的slide(new-product) */
-var swiper = new Swiper('#new-product', {
+recommends.el.onmouseover = function() {
+    recommends.autoplay.stop();
+}
+recommends.el.onmouseout = function() {
+        recommends.autoplay.start();
+    }
+    /* 轮播异形的slide(new-product) */
+var swiper5 = new Swiper('#new-product', {
     slidesPerView: 3,
     spaceBetween: 100,
     centeredSlides: true,
@@ -140,4 +152,75 @@ var swiper = new Swiper('#new-product', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+});
+swiper5.el.onmouseover = function() {
+    swiper5.autoplay.stop();
+}
+swiper5.el.onmouseout = function() {
+    swiper5.autoplay.start();
+}
+
+
+
+/* 购物车 */
+jQuery.getJSON("http://jx.xuzhixiang.top/ap/api/productlist.php?uid=44016", function(json) {
+    // alert("JSON Data: " + json.data[0].pname);
+    let oPordList = document.getElementById("prodList");
+    let str = "";
+    for (let id in json.data) {
+        str += `
+            <li data-id="${json.data[id].pid}">
+                <a href="detail.html?id=${json.data[id].pid}"><img src="${json.data[id].pimg}"></a>
+                <p>${json.data[id].pname}</p>
+                <p>￥${json.data[id].pprice}</p>
+                <input type="button" value="加入购物车" data-id="${json.data[id].pid}">
+            </li>
+            `;
+    }
+    oPordList.innerHTML = str;
+    let cart = new Cart();
+    let aInput = document.querySelectorAll("li");
+    for (let i = 0; i < aInput.length; i++) {
+        aInput[i].onclick = function() {
+            let id = this.getAttribute("data-id");
+            console.log(id);
+            cart.saveData(id, 1);
+        }
+    }
+});
+
+
+
+/* 楼梯 */
+$(window).scroll(function() {
+    if ($(window).scrollTop() >= 400) {
+        $("#anchor").css({
+            "display": "block"
+        })
+    } else {
+        $("#anchor").css({
+            "display": "none"
+        })
+    }
+})
+$(window).scroll(function() {
+    $(".skip").eq(Math.floor($(window).scrollTop() / ($(".floors").outerHeight()))).css({
+        "background": "red",
+        "color": "white"
+    });
+    $(".skip").not($(".skip")[Math.floor($(window).scrollTop() / ($(".floors").outerHeight()))]).css({
+        "background": "",
+        "color": "black"
+    });
+});
+$(".skip").click(function() {
+    $("html,body").animate({
+        "scrollTop": $(".floors").outerHeight() * $(this).index()
+    }, 500);
+});
+
+$(".start").click(function() {
+    $("html,body").animate({
+        "scrollTop": 0
+    }, 500);
 });

@@ -14,7 +14,7 @@ Cart.prototype.saveData = function(id, num) {
         },
         dataType: "json",
         success: function(response) {
-            console.log(response.msg);
+            alert(response.msg);
         }
     });
 }
@@ -133,17 +133,6 @@ Cart.prototype.removeData = function(i) {
     let id = this.list[i].getAttribute("data-id");
     this.oCartList.removeChild(this.list[i]); //删节点
     this.cks[i].checked = false;
-    //删数据
-    $.ajax({
-        type: "get",
-        url: " http://jx.xuzhixiang.top/ap/api/cart-delete.php",
-        data: {
-            uid: 44016,
-            pid: id
-        },
-        dataType: "json",
-        success: function(response) {
-            console.log(this);
-        }
-    });
+    delete this.cartDatas[id]; //删数据
+    localStorage.setItem("cartDatas", JSON.stringify(this.cartDatas));
 }

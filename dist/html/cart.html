@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery1.11.3.js"></script>
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+
+<body>
+    <div id="alllet">
+        <input type="checkbox" id="checkAll">
+        <span id="all">全选</span>
+    </div>
+    <ul id="cartList">
+        <!-- <li data-id="${json.data[id].pid}">
+            <input type="checkbox" class="ck">
+            <img src="${json.data[id].pimg}">
+            <span>${json.data[id].pname}</span>
+            <span class="perPrice">${json.data[id].pprice}</span>
+            <span class="minus">-</span>
+            <input type="text" value="${json.data[id].pnum}" class="num">
+            <span class="plus">+</span>
+            <span class="perTotalPrice">${json.data[id].pprice*json.data[id].pnum}</span>
+            <span class="del">x</span>
+        </li> -->
+    </ul>
+    <p>总价</p>
+    <div id="totalPrice">
+
+        0
+    </div>
+    <script src="../js/cart.js"></script>
+    <script>
+        var cart = new Cart();
+        cart.showData("cartList");
+    </script>
+</body>
+
+</html>

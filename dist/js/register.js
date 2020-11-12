@@ -20,3 +20,18 @@ $("#zhuce").click(function() {
         },
     });
 })
+
+/* 密码框验证 */
+//密码 参数不能为空
+var reg1 = /\s/g;
+var hint = document.createElement("p");
+$("#password").change(function() {
+    $("#item div")[2].appendChild(hint);
+    console.log($("#item div")[3]);
+    var val1 = $("#password").val();
+    if (reg1.test(val1)) {
+        hint.innerHTML = "参数不能为空";
+    } else {
+        hint.innerHTML = "格式正确";
+    }
+});
